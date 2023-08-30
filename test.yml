@@ -12,7 +12,8 @@
        enabled: "yes"
    - name: "copie du ficher dans le repertoire"
      copy:
-       remote_src: "test.html"
+       src: "test.html"
+       remote_src: "yes"
        dest: "/var/www/html"
        owner: "root"
        group: "root"  
