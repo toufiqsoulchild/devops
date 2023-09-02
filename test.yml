@@ -1,20 +1,21 @@
-- name: "apache installation"
+- name: "Apache installation"
   hosts: all
-  tasks: 
-   - name: "Installation du packahge apache"
-     apt: 
-       name: "apache2"
-       state: "present"
-   - name: "Démarrage du service"
-     service:
-       name: "apache2"   
-       state:  "started"
-       enabled: "yes"
-   - name: "copie du ficher dans le repertoire"
-     copy:
-       src: "test.html"
-       remote_src: "yes"
-       dest: "/var/www/html"
-       owner: "root"
-       group: "root"  
-
+  tasks:
+    - name: "Installation du packahge apache"
+      ansible.builtin.apt:
+        name: "apache2"
+        state: "present"
+    - name: "Démarrage du service"
+      ansible.builtin.service:
+        name: "apache2"
+        state:  "started"
+        enabled: "yes"
+    - name: "Copie du ficher dans le repertoire"
+      ansible.builtin.copy:
+        src: "test.html"
+        remote_src: "yes"
+        dest: "/var/www/html"
+        owner: "apache"
+        mode: "preserve"
+        group: "apache"
+        erreur
