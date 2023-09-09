@@ -1,0 +1,15 @@
+- name: "Gather hosts facts"
+  hosts: "all"
+  gather_facts: true
+  gather_subset:
+    - all
+  tasks:
+    - name: "Hosts affectation"
+      ansible.builtin.group_by:
+        key: "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}"
+    - name: "N tu connais"
+      ansible.builtin.debug:
+        var: "ansible_distribution"
+    - name: "T tu connais"
+      ansible.builtin.debug:
+        var: "ansible_distribution_major_version"
