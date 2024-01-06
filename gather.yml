@@ -13,3 +13,12 @@
     - name: "T tu connais"
       ansible.builtin.debug:
         var: "ansible_distribution_major_version"
+- name: "Update SSL on centos 8 machine"
+  hosts: "Debian-11"
+  gather_facts: false
+  tasks:
+    - name: "Installation open ssl"
+      ansible.builtin.apt:
+        name: "openssl"
+        state: "latest"
+        update_only: true

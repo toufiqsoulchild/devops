@@ -15,6 +15,6 @@
         src: "test.html"
         remote_src: "yes"
         dest: "/var/www/html"
-        owner: "apache"
+        owner: "root"
         mode: "preserve"
-        group: "apache"
+        group: "root"
